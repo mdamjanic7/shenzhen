@@ -121,9 +121,6 @@ command :build do |c|
       end
     end
 
-    log "zip", @dsym_filename
-    abort unless system %{cp -r "#{@dsym_path}" "#{@destination}" && pushd "#{File.dirname(@dsym_filename)}" && zip -r "#{@dsym_filename}.zip" "#{File.basename(@dsym_filename)}" #{'> /dev/null' unless $verbose} && popd && rm -rf "#{@dsym_filename}"}
-
     say_ok "Successfully built:"
     say_ok @ipa_path
   end
